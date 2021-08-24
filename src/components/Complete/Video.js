@@ -1,6 +1,8 @@
 import React from 'react'
-import video from '../../assets/connect.mp4'
 import styled from 'styled-components'
+
+import video from '../../assets/connect.mp4'
+
 export const RegVideo = () => {
   return (
     <RegVideoWrapper>
@@ -50,7 +52,7 @@ const IframeVideoWrapper = styled.div`
 
   .video {
     overflow: hidden;
-    /* // Calculated from the aspect ration of the content (in case of 16:9 it is 9/16= 0.5625) */
+    /* // Calculated from the aspect ratio of the content (in case of 16:9 it is 9/16= 0.5625) */
     padding-top: 56.25%;
     position: relative;
     border-radius: var(--radius);

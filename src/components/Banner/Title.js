@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-const Title = () => {
+
+const Title = ({ title }) => {
   return (
     <Wrapper>
-     Banner Title
+      <h4>{title}</h4>
+      <div className="line" />
     </Wrapper>
   )
 }
+
 const Wrapper = styled.div`
   position: relative;
   text-align: center;

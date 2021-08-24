@@ -3,15 +3,46 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
 import Title from './Title'
 
-
+const query = graphql`
+  {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 5) {
+      nodes {
+        id
+        frontmatter {
+          date(formatString: "MMM Do, YYYY")
+          slug
+          title
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 const Recent = () => {
-  
+  const {
+    allMdx: { nodes: posts },
+  } = useStaticQuery(query)
+
   return (
     <Wrapper>
-      Banner Recent
+      <Title className="recent" />
+      {posts.map(({ id, frontmatter: { title, slug, date, image } }) => (
+        <Link key={id} to={`/posts/${slug}`} className="post">
+          <GatsbyImage image={getImage(image)} alt={title} className="img" />
+          <div>
+            <h5>{title}</h5>
+            <p>{date}</p>
+          </div>
+        </Link>
+      ))}
     </Wrapper>
   )
 }

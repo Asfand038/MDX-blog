@@ -5,15 +5,23 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useState } from 'react'
+
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
+
 const Layout = ({ children }) => {
-  
+  const [showSidebar, setShowSidebar] = useState(false)
+
+  const toggleSidebar = () => setShowSidebar(!showSidebar)
+
   return (
     <>
-     <main>{children}</main>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }

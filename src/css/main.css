@@ -550,7 +550,7 @@ Testing Post and Components
   border-radius: var(--radius);
   margin: 2rem 0;
   font-size: 1.2rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   position: relative;
 }
 .code pre {

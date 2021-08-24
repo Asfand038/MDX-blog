@@ -1,13 +1,26 @@
 import React from 'react'
-import SocialLinks from '../../constants/socialLinks'
 import { StaticImage } from 'gatsby-plugin-image'
-import Title from './Title'
 import styled from 'styled-components'
+
+import SocialLinks from '../../constants/socialLinks'
+import Title from './Title'
 
 const About = () => {
   return (
     <Wrapper>
-      Banner About
+      <Title title="about me" />
+      <StaticImage
+        src="../../assets/banner-about.jpeg"
+        layout="fixed"
+        width={100}
+        height={100}
+        alt="author"
+        className="img"
+      />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, eligendi.
+      </p>
+      <SocialLinks styleClass="banner-icons" />
     </Wrapper>
   )
 }
